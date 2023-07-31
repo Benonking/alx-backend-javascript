@@ -9,18 +9,21 @@ export default class Currency {
   }
 
   set name(name) {
-    this._name = name;
-  }
-
+    if (typeof name === 'string') {
+      this._name = name;
+    } else return;
+  }  
   get code() {
     return this._code;
   }
 
   set code(code) {
-    this._code = code;
+    if (typeof code === 'string') {
+      this._code = code;
+    } else return;
   }
 
   displayFullCurrency() {
-    return `${this._name} + (${this._code})`;
+    return `${this._name} (${this._code})`;
   }
 }
