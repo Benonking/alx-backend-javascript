@@ -11,8 +11,9 @@ export default class Currency {
   set name(name) {
     if (typeof name === 'string') {
       this._name = name;
-    } else return;
-  }  
+    }
+  }
+
   get code() {
     return this._code;
   }
@@ -20,7 +21,7 @@ export default class Currency {
   set code(code) {
     if (typeof code === 'string') {
       this._code = code;
-    } else return;
+    }
   }
 
   displayFullCurrency() {
