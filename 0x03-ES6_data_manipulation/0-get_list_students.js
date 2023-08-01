@@ -8,7 +8,7 @@ export default function getListStudents() {
     {
       id: 2,
       firstName: 'James',
-      location: 'columbia',
+      location: 'Columbia',
     },
     {
       id: 5,
