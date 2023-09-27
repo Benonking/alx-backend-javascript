@@ -9,7 +9,7 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
     status: 'pending',
   };
   try {
-    const sign = await signUpUser(fileName, lastName);
+    const sign = await signUpUser(firstName, lastName);
     promise1.status = 'fulfilled';
     promise1.value = sign;
   } catch (error) {
