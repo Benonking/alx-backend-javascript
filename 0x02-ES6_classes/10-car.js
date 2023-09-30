@@ -4,8 +4,14 @@ export default class Car {
     this._motor = motor;
     this._color = color;
   }
+
+  // create copies of an object
+  static get [Symbol.species]() {
+    return this;
+  }
+
   cloneCar() {
-    cosnt  Carobj = Symbol();
-    return 
+    const Car = this.constructor[Symbol.species];
+    return new Car(this._brand, this._color, this._motor);
   }
 }
