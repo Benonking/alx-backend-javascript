@@ -47,8 +47,8 @@ function countStudents(path) {
     for (const [field, count] of Object.entries(fieldCount)) {
       console.log(`Number of students in ${field}: ${count}. List: ${getFirstNamesList(lines, field)}`);
     }
-  } catch{
-		throw new Error('Cannot load the database');
+  } catch {
+    throw new Error('Cannot load the database');
   }
 }
 
@@ -63,3 +63,4 @@ function getFirstNamesList(lines, field) {
   }
   return firstNames.join(', ');
 }
+module.exports = countStudents, getFirstNamesList
