@@ -28,4 +28,11 @@ describe('api integration test', ()=>{
       done()
     });
   });
+  it('GET /cart/:id returns correct output',(done) => {
+    const id = 12
+    request.get(`${url}/cart/${id}`, (err, res, body) => {
+      expect(body).to.be.equal(`Payment methods for cart ${id}`);
+      done()
+    });
+  });
 });
