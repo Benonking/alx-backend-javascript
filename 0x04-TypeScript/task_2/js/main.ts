@@ -1,53 +1,68 @@
-interface DirectorInteface {
+export interface DirectorInteface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workDirectorTasks(): string;
 }
-interface TeacherInterface {
+
+export interface TeacherInterface {
   workFromHome(): string;
   getCoffeeBreak(): string;
   workTeacherTasks(): string;
 }
 
-class Director implements DirectorInteface{
-  workFromHome() :string{
+export class Director implements DirectorInteface{
+  workFromHome() : string{
     return 'Working from home';
   }
+
   getCoffeeBreak(): string {
     return 'Getting a coffee break';
   }
-  workDirectorTasks(): string {
-    return 'Getting to director tasks';
+  getTowork(): string{
+    return "Getting a coffee break";
   }
+  workDirectorTasks(): string {
+    return "Getting to director tasks";
+  }
+
 }
 
-class Teacher implements TeacherInterface {
+export class Teacher implements TeacherInterface {
   workFromHome(): string {
     return 'Cannot work from Home';
   }
+
   getCoffeeBreak(): string {
     return 'Cannot have a break';
   }
+
   workTeacherTasks(): string {
-    return 'Get to work'
+    return 'Getting to work'
   }
 }
 
-function createEmployee(salary: number) :Director| Teacher {
-  if (isNaN(salary) && salary < 500) {
+export function createEmployee(salary: number | string) :Director | Teacher {
+  if (typeof(salary) === 'number' && salary < 500) {
     return new Teacher();
   }
   return new Director();
 }
 
 //creating functions specfic to employees
-function isDirector(employee) {
-
-
+export function isDirector(employee: Teacher |Director): boolean {
+  return employee instanceof Director;
 }
-function executeWork(employee) {
-  if (employee == Director) {
-    Director.workDirector();
+
+export function executeWork(employee: Teacher | Director): void{
+  if (employee instanceof Director) {
+    employee.workDirectorTasks();
+  }else {
+    employee.workTeacherTasks();
   }
-  Teacher.workTEacherTasks();
+}
+//string literals
+export type Subjects = "Math" | "History";
+
+export function teachClass(todayClass: Subjects): string {
+  return `Teaching ${todayClass}`;
 }

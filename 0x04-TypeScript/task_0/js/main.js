@@ -1,4 +1,4 @@
-;
+
 var student1 = {
     firstName: 'Benon',
     lastName: 'Masereka',

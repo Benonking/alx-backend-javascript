@@ -31,6 +31,9 @@ console.log(director1);
 function printTeacher(firstName: string, lastName: string): string{
   return `${firstName[0]}. ${lastName}`;
 }
+interface printTeacherFunction{
+  (firstName:string, lastName:string): void
+}
 
 interface StudentClassInterface {
   firstName: string;
@@ -38,12 +41,11 @@ interface StudentClassInterface {
   workonHomeWork(): string;
   displayName(): string
 };
+//constructor interface
 interface StudentClassConstructor {
-  new (firstName: string, lastName: string): StudentClassInterface;
+  new (firstName: string, lastName: string): StudentClass;
 }
-
-
-
+//student class
 class StudentClass {
   fn:string;
   ln:string;
@@ -52,7 +54,7 @@ class StudentClass {
     this.ln = lastName;
 
   }
-  workOnHomeWork() {
+  workOnHomeWork(): string {
     return 'Currently working';
   }
   displayName (): string{
