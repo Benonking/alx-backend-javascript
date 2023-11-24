@@ -1,8 +1,6 @@
 const chai = require('chai');
-const chaiAsPromised = require('chai-as-promised');
 const getPaymentTokenFromAPI = require('./6-payment_token'); 
 
-chai.use(chaiAsPromised);
 const expect = chai.expect;
 
 describe('getPaymentTokenFromAPI', () => {
@@ -11,8 +9,8 @@ describe('getPaymentTokenFromAPI', () => {
     const promise = getPaymentTokenFromAPI(true);
     promise.
 		then((res) => {
-			expect(res).to.eventually.deep.equal({ data: 'Successful response from the API' });
+			expect(res).to.deep.equal({ data: 'Successful response from the API' });
 		})
-		.finally(done);
+		done();
   });
 });
